@@ -23,3 +23,16 @@ def read_whole_file(path):
                 final_string += f"{word} "
         file_handle.close()
     return final_string
+
+
+# Function that returns a given length list of n first words from a file
+def read_first_words(path, n):
+    first_words = []
+    with open(path, "r") as file_handle:
+        for line in file_handle:
+            for word in line.split():
+                first_words.append(word)
+                if len(first_words) == n:
+                    return first_words
+        file_handle.close()
+    return first_words
