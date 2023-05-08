@@ -13,11 +13,11 @@ def random_text():
 
 
 # Function that returns a random test pattern created with letters 'A' and 'B'
-# It's length is always between 2 and 8
+# It's length is always between 5 and 10
 def random_pattern():
     pattern = ""
     letters = ["A", "B"]
-    pattern_length = random.randint(2, 8)
+    pattern_length = random.randint(5, 8)
     for i in range(pattern_length):
         pattern += random.choice(letters)
     return pattern
