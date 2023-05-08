@@ -13,6 +13,7 @@ def main():
     pattern = random_pattern()
     print("ALGORITHM TESTING")
     print(f"Naive search result: {naive_search(pattern, text)}")
+    print(f"KMP search result: {kmp_search(pattern, text)}")
 
 
 if __name__ == "__main__":
