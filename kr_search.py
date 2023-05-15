@@ -49,11 +49,11 @@ def kr_search(pattern, text):
 
 
 def main():
-    text = "abr"
-    text2 = "bra"
+    text = "Ibrahimovic"
+    text2 = "brahimovicJ"
     print(hash(text))
     print(hash(text2))
-    print(next_hash(text, hash(text), "a", "a"))
+    print(next_hash(text, hash(text), "I", "J"))
 
 
 if __name__ == "__main__":
