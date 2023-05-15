@@ -30,48 +30,95 @@ def main():
     number_of_first_words_list = [100, 200, 300, 400, 500, 600, 700, 800, 900, 1000]
     pan_tadeusz = read_whole_file("pan_tadeusz.txt")
 
-    for key in number_of_first_words_list:
-        first_words = read_first_words("pan_tadeusz.txt", key)
-        gc_old = gc.isenabled()
-        gc.disable()
-        start = time.process_time()
-        for word in first_words:
-            naive_search(word, pan_tadeusz)
-        end = time.process_time()
-        search_time = end - start
-        if gc_old:
-            gc.enable()
-        naive_times[key] = search_time
+    first_words = read_first_words("pan_tadeusz.txt", 1000)
+    gc_old = gc.isenabled()
+    gc.disable()
+    start = time.process_time()
+    for i in range(1000):
+        naive_search(first_words[i], pan_tadeusz)
+        if i == 100:
+            naive_times[i] = time.process_time() - start
+        elif i == 200:
+            naive_times[i] = time.process_time() - start
+        elif i == 300:
+            naive_times[i] = time.process_time() - start
+        elif i == 400:
+            naive_times[i] = time.process_time() - start
+        elif i == 500:
+            naive_times[i] = time.process_time() - start
+        elif i == 600:
+            naive_times[i] = time.process_time() - start
+        elif i == 700:
+            naive_times[i] = time.process_time() - start
+        elif i == 800:
+            naive_times[i] = time.process_time() - start
+        elif i == 900:
+            naive_times[i] = time.process_time() - start
+        elif i == 1000:
+            naive_times[i] = time.process_time() - start
+    if gc_old:
+        gc.enable()
     print("Naive search times:")
     print(naive_times)
 
-    for key in number_of_first_words_list:
-        first_words = read_first_words("pan_tadeusz.txt", key)
-        gc_old = gc.isenabled()
-        gc.disable()
-        start = time.process_time()
-        for word in first_words:
-            kmp_search(word, pan_tadeusz)
-        end = time.process_time()
-        search_time = end - start
-        if gc_old:
-            gc.enable()
-        kmp_times[key] = search_time
+    first_words = read_first_words("pan_tadeusz.txt", 1000)
+    gc_old = gc.isenabled()
+    gc.disable()
+    start = time.process_time()
+    for i in range(1000):
+        kmp_search(first_words[i], pan_tadeusz)
+        if i == 100:
+            kmp_times[i] = time.process_time() - start
+        elif i == 200:
+            kmp_times[i] = time.process_time() - start
+        elif i == 300:
+            kmp_times[i] = time.process_time() - start
+        elif i == 400:
+            kmp_times[i] = time.process_time() - start
+        elif i == 500:
+            kmp_times[i] = time.process_time() - start
+        elif i == 600:
+            kmp_times[i] = time.process_time() - start
+        elif i == 700:
+            kmp_times[i] = time.process_time() - start
+        elif i == 800:
+            kmp_times[i] = time.process_time() - start
+        elif i == 900:
+            kmp_times[i] = time.process_time() - start
+        elif i == 1000:
+            kmp_times[i] = time.process_time() - start
+    if gc_old:
+        gc.enable()
     print("KMP search times:")
     print(kmp_times)
 
-    for key in number_of_first_words_list:
-        first_words = read_first_words("pan_tadeusz.txt", key)
-        gc_old = gc.isenabled()
-        gc.disable()
-        start = time.process_time()
-        for word in first_words:
-            kr_search(word, pan_tadeusz)
-        end = time.process_time()
-        search_time = end - start
-        if gc_old:
-            gc.enable()
-        kr_times[key] = search_time
+    gc_old = gc.isenabled()
+    gc.disable()
+    start = time.process_time()
+    for i in range(1000):
+        kr_search(first_words[i], pan_tadeusz)
+        if i == 100:
+            kr_times[i] = time.process_time() - start
+        elif i == 200:
+            kr_times[i] = time.process_time() - start
+        elif i == 300:
+            kr_times[i] = time.process_time() - start
+        elif i == 400:
+            kr_times[i] = time.process_time() - start
+        elif i == 500:
+            kr_times[i] = time.process_time() - start
+        elif i == 600:
+            kr_times[i] = time.process_time() - start
+        elif i == 700:
+            kr_times[i] = time.process_time() - start
+        elif i == 800:
+            kr_times[i] = time.process_time() - start
+        elif i == 900:
+            kr_times[i] = time.process_time() - start
+        elif i == 1000:
+            kr_times[i] = time.process_time() - start
+    if gc_old:
+        gc.enable()
     print("KR search times:")
     print(kr_times)
 
