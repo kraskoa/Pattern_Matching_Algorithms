@@ -26,3 +26,22 @@ def naive_search(pattern, text):
             if j == lp:
                 occurences.append(i)
         return occurences
+
+
+def main():
+    pattern = ""
+    text = ""
+    print(naive_search(pattern, text))
+    pattern_equal_text = "abc"
+    text_equal_pattern = "abc"
+    print(naive_search(pattern_equal_text, text_equal_pattern))
+    pattern_not_in_text = "abc"
+    text_not_in_pattern = "def"
+    print(naive_search(pattern_not_in_text, text_not_in_pattern))
+    pattern_longer_than_text = "abcdef"
+    text_shorter_than_pattern = "abc"
+    print(naive_search(pattern_longer_than_text, text_shorter_than_pattern))
+
+
+if __name__ == "__main__":
+    main()

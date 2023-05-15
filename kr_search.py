@@ -49,11 +49,24 @@ def kr_search(pattern, text):
 
 
 def main():
-    text = "Ibrahimovic"
-    text2 = "brahimovicJ"
-    print(hash(text))
-    print(hash(text2))
-    print(next_hash(text, hash(text), "I", "J"))
+    # text = "Ibrahimovic"
+    # text2 = "brahimovicJ"
+    # print(hash(text))
+    # print(hash(text2))
+    # print(next_hash(text, hash(text), "I", "J"))
+
+    pattern = ""
+    text = ""
+    print(kr_search(pattern, text))
+    pattern_equal_text = "abc"
+    text_equal_pattern = "abc"
+    print(kr_search(pattern_equal_text, text_equal_pattern))
+    pattern_not_in_text = "abc"
+    text_not_in_pattern = "def"
+    print(kr_search(pattern_not_in_text, text_not_in_pattern))
+    pattern_longer_than_text = "abcdef"
+    text_shorter_than_pattern = "abc"
+    print(kr_search(pattern_longer_than_text, text_shorter_than_pattern))
 
 
 if __name__ == "__main__":
