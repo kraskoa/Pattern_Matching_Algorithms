@@ -8,7 +8,9 @@ def main():
     # Zgodnie z poleceniem sprawdzamy poprawnosc implementacji za pomoca random_text i random_pattern
     # Tworzymy testowy text i testowy pattern i odpalamy dla tego samego wszystkie 3 algorytmy
     # Wyprintujemy w konsoli cos na zasadzie "Algorithm testing: \nNaive search result: [1, 4, 6]\n KMP search result: [1, 4, 6] itd
+    # KK: Ok, ogarniemy
     # Przed oddaniem trzeba usunac te komentarze XD
+    # KK: E, a po co? XD
     text = random_text()
     pattern = random_pattern()
     print("ALGORITHM TESTING")

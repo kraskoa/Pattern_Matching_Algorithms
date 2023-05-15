@@ -12,7 +12,16 @@
 #     else:
 #         {definicja funkcji}
 # Bedzie sensowna spojnosc implementacji wtedy
-def kmp_search(pattern, text):
+def hash(text):
+    hash_value = 0
+    mod = 101
+    base = 256
+    for letter in text:
+        hash_value = (hash_value * base + ord(letter)) % mod
+    return hash_value
+
+
+def kr_search(pattern, text):
     """
     Params:
     pattern (str) - searched text pattern
@@ -20,4 +29,27 @@ def kmp_search(pattern, text):
     Returns:
     occurences (list) - list of pattern starting indexes in text
     """
-    pass
+    lp = len(pattern)
+    lt = len(text)
+    if lp > lt:
+        return None
+    elif lp == lt:
+        if pattern == text:
+            return [0]
+        else:
+            return None
+    else:
+        pass
+
+
+def main():
+    text = "abr"
+    text2 = "hi"
+    text3 = "bra"
+    print(hash(text))
+    print(hash(text2))
+    print(hash(text3))
+
+
+if __name__ == "__main__":
+    main()
