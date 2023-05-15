@@ -1,17 +1,3 @@
-# Dla ciebie Krzysiu zostal ten algorytm Karpa-Rabina i klasyczne sklejenie reszty maina
-# Wstaw na poczatku definicji swojej funkcji cos na zasadzie:
-#     lp = len(pattern)
-#     lt = len(text)
-#     if lp > lt:
-#         return None
-#     elif lp == lt:
-#         if pattern == text:
-#             return [0]
-#         else:
-#             return None
-#     else:
-#         {definicja funkcji}
-# Bedzie sensowna spojnosc implementacji wtedy
 def hash(text):
     hash_value = 0
     mod = 101
@@ -19,6 +5,15 @@ def hash(text):
     for letter in text:
         hash_value = (hash_value * base + ord(letter)) % mod
     return hash_value
+
+
+def next_hash(text, old_hash, old_letter, new_letter):
+    mod = 101
+    base = 256
+    hash_value = (old_hash - ord(old_letter) * pow(base, len(text) - 1)) * base + ord(
+        new_letter
+    )
+    return hash_value % mod
 
 
 def kr_search(pattern, text):
@@ -39,16 +34,26 @@ def kr_search(pattern, text):
         else:
             return None
     else:
-        pass
+        occurences = []
+        pattern_hash = hash(pattern)
+        text_hash = hash(text[:lp])
+        for i in range(lt - lp + 1):
+            if pattern_hash == text_hash:
+                if pattern == text[i : i + lp]:
+                    occurences.append(i)
+            if i < lt - lp:
+                text_hash = next_hash(
+                    text[i : i + lp], text_hash, text[i], text[i + lp]
+                )
+        return occurences
 
 
 def main():
     text = "abr"
-    text2 = "hi"
-    text3 = "bra"
+    text2 = "bra"
     print(hash(text))
     print(hash(text2))
-    print(hash(text3))
+    print(next_hash(text, hash(text), "a", "a"))
 
 
 if __name__ == "__main__":
