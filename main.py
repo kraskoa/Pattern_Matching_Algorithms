@@ -27,14 +27,13 @@ def main():
     naive_times = {}
     kmp_times = {}
     kr_times = {}
-    number_of_first_words_list = [100, 200, 300, 400, 500, 600, 700, 800, 900, 1000]
     pan_tadeusz = read_whole_file("pan_tadeusz.txt")
 
-    first_words = read_first_words("pan_tadeusz.txt", 1000)
+    first_words = read_first_words("pan_tadeusz.txt", 1001)
     gc_old = gc.isenabled()
     gc.disable()
     start = time.process_time()
-    for i in range(1000):
+    for i in range(1001):
         naive_search(first_words[i], pan_tadeusz)
         if i == 100:
             naive_times[i] = time.process_time() - start
@@ -61,11 +60,10 @@ def main():
     print("Naive search times:")
     print(naive_times)
 
-    first_words = read_first_words("pan_tadeusz.txt", 1000)
     gc_old = gc.isenabled()
     gc.disable()
     start = time.process_time()
-    for i in range(1000):
+    for i in range(1001):
         kmp_search(first_words[i], pan_tadeusz)
         if i == 100:
             kmp_times[i] = time.process_time() - start
@@ -95,7 +93,7 @@ def main():
     gc_old = gc.isenabled()
     gc.disable()
     start = time.process_time()
-    for i in range(1000):
+    for i in range(1001):
         kr_search(first_words[i], pan_tadeusz)
         if i == 100:
             kr_times[i] = time.process_time() - start
